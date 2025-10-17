@@ -19,8 +19,17 @@ def get_data(file_path:str)->list:
             data.append(row)
     return data
 
+def get_num_items(data:list)->int:
+    return len(data)
+
 def main():
-    pass
+    file_path:str = "inventory.csv"
+    data:list = get_data(file_path)
+
+    # num_items = get_num_items(data)
+    # print(f"total number of items: {num_items}")
+
+    print(data[0].keys())
 
     
 
