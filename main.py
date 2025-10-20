@@ -22,6 +22,18 @@ def get_data(file_path:str)->list:
 def get_num_items(data:list)->int:
     return len(data)
 
+def get_categories(data:list)->dict:
+    categories ={}
+     
+    for item in data:
+        category =item.get('category')
+        if categories.get(category) is None:
+            categories[category] = 0
+
+        categories[category] +=1
+
+    return categories
+
 def main():
     file_path:str = "inventory.csv"
     data:list = get_data(file_path)
@@ -29,7 +41,10 @@ def main():
     # num_items = get_num_items(data)
     # print(f"total number of items: {num_items}")
 
-    print(data[0].keys())
+    categories = get_categories(data)
+    print(f"Laptops: {categories.get('Laptop')}")
+    print(f"Tablet: {categories.get('Tablet')}")
+    print(f"Phones: {categories.get('Phone')}")
 
     
 
