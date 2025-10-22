@@ -34,12 +34,28 @@ def get_categories(data:list)->dict:
 
     return categories
 
+def get_old_inventory(data:list category:str, age:int, field:str)->list:
+    old stuff = []
+    for item in data:
+        if item.get('category') == category and int(item.get('age')) >age:
+            old_stuff.append(item.get(field))
+
+    return old_stuff
+
 def main():
     file_path:str = "inventory.csv"
     data:list = get_data(file_path)
 
     # num_items = get_num_items(data)
     # print(f"total number of items: {num_items}")
+
+    ##1 how many items total
+    #num items = 
+    ##2 - how many of each item
+    #category = get_category
+    old = get_old_inventory(data, 'Laptop', 7)
+    for item in old:
+        print(item)
 
     categories = get_categories(data)
     print(f"Laptops: {categories.get('Laptop')}")
